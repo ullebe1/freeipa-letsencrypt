@@ -1,0 +1,7 @@
+[Unit]
+Description=app-update executor
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/freeipa-letsencrypt-apply-certs

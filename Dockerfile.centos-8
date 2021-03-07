@@ -1,0 +1,7 @@
+FROM freeipa/freeipa-server:centos-8
+
+COPY freeipa-letsencrypt-apply-certs /usr/sbin/
+COPY freeipa-letsencrypt.* /usr/lib/systemd/system/
+
+RUN ln -sv /usr/lib/systemd/system/freeipa-letsencrypt.service /data-template/etc/systemd/system/container-ipa.target.wants/freeipa-letsencrypt.service
+RUN ln -sv /usr/lib/systemd/system/freeipa-letsencrypt.path /data-template/etc/systemd/system/container-ipa.target.wants/freeipa-letsencrypt.path

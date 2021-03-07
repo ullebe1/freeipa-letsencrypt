@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Get LetsEncrypt CA certificates
+echo "Downloading LetsEncrypt CA certificates..."
+wget https://letsencrypt.org/certs/isrgrootx1.pem
+wget https://letsencrypt.org/certs/isrg-root-x2.pem
+echo "LetsEncrypt CA certificates downloaded succesfully"
+
+# Install LetsEncrypt CA certificates
+echo "Installing LetsEncrypt CA certificates..."
+ipa-cacert-manage -n ISRG-Root-X1 -t C,, install isrgrootx1.pem
+ipa-cacert-manage -n ISRG-Root-X2 -t C,, install isrg-root-x2.pem
+ipa-certupdate
+echo "LetsEncrypt CA certificates installed succesfully"
+
+# Install LetsEncrypt bundle if it exists yet
+if [ -d "/etc/letsencrypt/live/${HOSTNAME}/live" ] 
+then
+    echo "LetsEncrypt bundle available, installing..."
+    ipa-server-certinstall -w -d /etc/letsencrypt/live/"${HOSTNAME}"/live/fullchain.pem /etc/letsencrypt/live/"${HOSTNAME}"/live/privkey.pem
+    echo "LetsEncrypt bundle succesfully installed"
+else
+    echo "LetsEncrypt bundle not available, skipping bundle install"
+fi
