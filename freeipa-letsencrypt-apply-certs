@@ -22,3 +22,8 @@ then
 else
     echo "LetsEncrypt bundle not available, skipping bundle install"
 fi
+
+# Restart everything so the new certificates gets applied
+echo "Restarting FreeIPA..."
+ipactl restart
+echo "FreeIPA restarted succesfully"
