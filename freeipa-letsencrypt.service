@@ -1,5 +1,5 @@
 [Unit]
-Description=app-update executor
+Description=FreeIPA Let's Encrypt service
 After=network.target
 
 [Service]
