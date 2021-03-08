@@ -2,8 +2,8 @@
 
 # Get LetsEncrypt CA certificates
 echo "Downloading LetsEncrypt CA certificates..."
-wget https://letsencrypt.org/certs/isrgrootx1.pem
-wget https://letsencrypt.org/certs/isrg-root-x2.pem
+curl https://letsencrypt.org/certs/isrgrootx1.pem -o isrgrootx1.pem
+curl https://letsencrypt.org/certs/isrg-root-x2.pem -o isrg-root-x2.pem
 echo "LetsEncrypt CA certificates downloaded succesfully"
 
 # Install LetsEncrypt CA certificates
