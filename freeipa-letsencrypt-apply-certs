@@ -17,7 +17,7 @@ echo "LetsEncrypt CA certificates installed succesfully"
 if [ -d "/etc/letsencrypt/live/${HOSTNAME}/live" ] 
 then
     echo "LetsEncrypt bundle available, installing..."
-    ipa-server-certinstall -w -d /etc/letsencrypt/live/"${HOSTNAME}"/live/fullchain.pem /etc/letsencrypt/live/"${HOSTNAME}"/live/privkey.pem
+    ipa-server-certinstall -w -d /etc/letsencrypt/live/"${HOSTNAME}"/fullchain.pem /etc/letsencrypt/live/"${HOSTNAME}"/privkey.pem
     echo "LetsEncrypt bundle succesfully installed"
 else
     echo "LetsEncrypt bundle not available, skipping bundle install"
