@@ -1,7 +1,7 @@
 # FreeIPA Let's Encrypt
 This container expands the official FreeIPA container(s) with the needed services to automatically enable LetsEncrypt certificates for both LDAPS and HTTPS. It does not contain any functionality to obtain said certificates, rather they should be obtained using your preferred method and mounted into the container. 
 
-This container is currently only available for FreeIPA based on CentOS 8, but more flavors can be enable upon request.
+This container is currently on available on [Docker Hub](https://hub.docker.com/r/ullebe1/freeipa-letsencrypt), but only for FreeIPA based on CentOS 8. More flavors can be enable upon request.
 
 # How to use
 To use, simply mount the LetsEncrypt folder containing your certificates to `/etc/letsencrypt/` in the container. Changes to the certificates will automatically be detected and applied immediately.
